@@ -51,8 +51,7 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send bu
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    char sbuff[BUFSIZ]="GET /index.html HTTP/1.1\nHost:sse.com.cn\r\n";
-    char rbuff[BUFSIZ];
+    
     memset(&rbuff,0,BUFSIZ);
     if ((sfd = socket(d,t,p)))
     {
@@ -74,17 +73,8 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send bu
         }
         else
         {
-            printf("website server connect successfully\n");
-            if (( send(sfd,sbuff,sizeof(sbuff),0)==-1))
-            {
-                perror("send()");
-            }
-            if (( recv(sfd,rbuff,sizeof(rbuff),0)==-1))
-            {
-                perror("send()");
-            }
-            printf("%s",rbuff);
-            
+            //send and receive
+
         }
         
     }
