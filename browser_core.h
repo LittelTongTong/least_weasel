@@ -51,8 +51,9 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send bu
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    
+    char rbuff[BUFSIZ],sbuff[BUFSIZ];
     memset(&rbuff,0,BUFSIZ);
+    memset(&sbuff,0,BUFSIZ);
     if ((sfd = socket(d,t,p)))
     {
         //set port number F!U!C!K! 否则会报错 “connect(): Can't assign requested address ” ！！！！！！
@@ -73,7 +74,17 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send bu
         }
         else
         {
+            printf("connect successfully\n");
             //send and receive
+            if ((send(sfd,sbuff,BUFSIZ,0)==-1))
+            {
+                perror("send()");
+            }
+            if ((recv(sfd,rbuff,BUFSIZ,0)==-1))
+            {
+                perror("recv()");
+            }
+            printf("%s\n",rbuff);
 
         }
         
