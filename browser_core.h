@@ -7,6 +7,7 @@
 #include<arpa/inet.h>
 #include<unistd.h>
 #define M_N_W 100 
+#define NUMOFBUFF 1024
 //website socket information 
 struct w_s_d
 {
@@ -44,9 +45,9 @@ int DNS(char *website ,struct w_s_d * web_socket_data)//网址
     return 0;
 }
 //连接到网站服务器
-int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send buff,number of  buff to send, receive buff,number of  buff to receive )
+int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
 {
-    int sfd;
+    int sfd,s_n,r_n;//socket filedescription
     int d = web_socket_data->website_addrinfo->ai_family;//socket domain 
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
@@ -75,17 +76,25 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info, send bu
         else
         {
             printf("connect successfully\n");
-            //send and receive
-            if ((send(sfd,sbuff,BUFSIZ,0)==-1))
+            //send and receive data  both max size is 1Mb
+            if ((send(sfd,&sbuff,BUFSIZ,0)==-1))
             {
                 perror("send()");
             }
-            if ((recv(sfd,rbuff,BUFSIZ,0)==-1))
+            else
+            {
+                printf("---send a request:%d---\n",s_n);
+            }
+            
+            if ((recv(sfd,&rbuff,10,0)==-1))
             {
                 perror("recv()");
             }
-            printf("%s\n",rbuff);
-
+             else
+            {
+                printf("---receive a---\n");
+                printf("%s\n",rbuff);
+            }
         }
         
     }
