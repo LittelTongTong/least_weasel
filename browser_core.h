@@ -52,9 +52,11 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    char rbuff[BUFSIZ],sbuff[BUFSIZ];
-    memset(&rbuff,0,BUFSIZ);
-    memset(&sbuff,0,BUFSIZ);
+    char rbuff[11],sbuff[BUFSIZ],*rdata,*sdata;
+    memset(rbuff,0,11);
+    memset(sbuff,0,BUFSIZ);
+    sdata=(char*)malloc(1024);
+    rdata=(char*)malloc(11);
     if ((sfd = socket(d,t,p)))
     {
         //set port number F!U!C!K! 否则会报错 “connect(): Can't assign requested address ” ！！！！！！
@@ -77,7 +79,7 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
         {
             printf("connect successfully\n");
             //send and receive data  both max size is 1Mb
-            if ((send(sfd,&sbuff,BUFSIZ,0)==-1))
+            if ((send(sfd,sbuff,BUFSIZ,0)==-1))
             {
                 perror("send()");
             }
@@ -85,15 +87,23 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
             {
                 printf("---send a request:%d---\n",s_n);
             }
+            int nbuff=10;
+            while (1)
+            {
+                r_n=recv(sfd,rbuff,10,0);
+                rdata=realloc(rdata,nbuff);
+                strcat(rdata,rbuff);
+                nbuff+=10;
+                if (r_n==0)
+                {
+                    break;
+                }
+            }
+            printf(">>>received data<<<\n%s\n>>>end<<<",rdata);
             
-            if ((recv(sfd,&rbuff,10,0)==-1))
+            if (r_n==-1)
             {
                 perror("recv()");
-            }
-             else
-            {
-                printf("---receive a---\n");
-                printf("%s\n",rbuff);
             }
         }
         

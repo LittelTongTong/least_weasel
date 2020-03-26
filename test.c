@@ -18,11 +18,15 @@ int test2()
     return 0 ;
 }
 int main(){
-    int a[13];
-    if ((int) a==(int) &a)
+    char *a; 
+    a=(char*) malloc(2);
+    for (size_t i = 1; i < 10000; i++)
     {
-        printf("=\n");
+        a=(char *)realloc(a,i);
+        strcat(a,"a");
+        printf("%s\n",a);
     }
+    
     
     return 0 ;
 }
