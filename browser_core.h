@@ -90,23 +90,24 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
             do
             {
                 r_n=recv(sfd,rbuff,BUFSIZ,0);
-                P_Ap(rdata,nbuff,rbuff,BUFSIZ);
+                BBB(rdata,nbuff,rbuff,BUFSIZ);
+                printf("%s",rbuff);
+                memset(rbuff,0,BUFSIZ);
                 nbuff+=BUFSIZ;
             } while (r_n==0);
-            printf("---received data---\n\n%s\n\n---end---\n",rdata);
+            //printf("---received data---\n\n%s\n\n---end---\n",rdata);
             if (r_n==-1)
             {
                 perror("recv()");
             }
-            if ((out=fopen("web/1.txt","w+"))==NULL)
+            if ((out=fopen("web/1.html","w"))==NULL)
             {
-                P_E(errno,"open request.txt");
+                P_E(errno," new ");
             }
-            fwrite(rdata,1,nbuff,out);
+            
+            fprintf(out,"%s",rdata);
         }
     }
-    
-    
     else
     {
         perror("socket()");
@@ -114,4 +115,3 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
     close(sfd);
     return 0 ; 
 }
-

@@ -1,6 +1,14 @@
 {
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
-        "un.h": "c"
+        "un.h": "c",
+        "__string": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "iterator": "cpp",
+        "locale": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "string": "cpp"
     }
 }

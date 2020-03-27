@@ -8,15 +8,10 @@ int test(void * point,int size)
     memset(point,0,size);
     return 0;
 }
-int test2()
+int test3()
 {
-    int i=1;
-    switch (i)
-    {
-    case 1:
-       printf("1");
-    }
-    return 0 ;
+    
+    returan 
 }
 int main(){
     char *a,*b;
