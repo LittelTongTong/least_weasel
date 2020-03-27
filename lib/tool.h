@@ -48,3 +48,15 @@ int P_S_l( int j ,  char list[100][64])//print string list content
 	
 	return 0;
 }
+int P_Ap(char *dest,int len,char *sour,int s_sz)//pointer.append  dest[]=dest[]+sour[]
+{
+	dest =realloc(dest,len+s_sz);
+	for (size_t i = 0; i < s_sz; i++)
+	{
+		*(dest + len +i)=*(sour+i);
+		//printf("%c",*(dest + len +i));
+	}
+	
+	
+	return 0 ;
+}

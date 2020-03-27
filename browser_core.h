@@ -7,7 +7,6 @@
 #include<arpa/inet.h>
 #include<unistd.h>
 #define M_N_W 100 
-#define NUMOFBUFF 1024
 //website socket information 
 struct w_s_d
 {
@@ -52,11 +51,13 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    char rbuff[11],sbuff[BUFSIZ],*rdata,*sdata;
-    memset(rbuff,0,11);
-    memset(sbuff,0,BUFSIZ);
-    sdata=(char*)malloc(1024);
-    rdata=(char*)malloc(11);
+    char sbuff[BUFSIZ]="";
+    char rbuff[BUFSIZ],*rdata,*sdata;
+    int nbuff=0;
+    memset(rbuff,0,BUFSIZ);
+    //memset(sbuff,0,BUFSIZ);
+    sdata=(char*)malloc(BUFSIZ);
+    rdata=(char*)malloc(BUFSIZ);
     if ((sfd = socket(d,t,p)))
     {
         //set port number F!U!C!K! 否则会报错 “connect(): Can't assign requested address ” ！！！！！！
@@ -71,6 +72,7 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
             break;
         }
         printf("connect to |%s|\n",web_socket_data->website);
+        //此处应该增加 ip 不能工作时则换 if(web_socker_data->next!=NULL then (web_socker_data=web_socker_data->next)->website_addrinfo->ai_addr)
         if ((connect(sfd, web_socket_data->website_addrinfo->ai_addr,len)==-1))
         {
             perror("connect()");
@@ -85,28 +87,20 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
             }
             else
             {
-                printf("---send a request:%d---\n",s_n);
+                printf("---send a request--\n");
             }
-            int nbuff=10;
-            while (1)
+            do
             {
-                r_n=recv(sfd,rbuff,10,0);
-                rdata=realloc(rdata,nbuff);
-                strcat(rdata,rbuff);
-                nbuff+=10;
-                if (r_n==0)
-                {
-                    break;
-                }
-            }
-            printf(">>>received data<<<\n%s\n>>>end<<<",rdata);
-            
+                r_n=recv(sfd,rbuff,BUFSIZ,0);
+                P_Ap(rdata,nbuff,rbuff,BUFSIZ);
+                nbuff+=BUFSIZ;
+            } while (r_n==0);
+            printf("---received data---\n\n%s\n\n---end---\n",rdata);
             if (r_n==-1)
             {
                 perror("recv()");
             }
         }
-        
     }
     
     
