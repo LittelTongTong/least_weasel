@@ -64,11 +64,24 @@ int main()
 
     //建立与服务器连接并传输（接收）数据
     printf(">>connect website server<<\n");
+    char * sdata;
+    FILE * in;
+    int f_s;
     for (int  i = 0; i < n_web; i++)
     {
-       C2Ws(&web_s_data[i]); 
+        if ((in=fopen("website/request.txt","r"))==NULL) // request list 替代
+        {
+            P_E(errno,"open request.txt");
+        }
+        fseek(in,0,SEEK_END);
+        f_s=ftell(in);
+        rewind(in);
+        sdata = malloc(sizeof(char)*f_s);
+        fread(sdata,1,f_s,in);
+        fclose(in);
+        printf("\nsdata:%s\n",sdata);
+        C2Ws(&web_s_data[i],sdata);
     }
- 
     return 0;
 
 }

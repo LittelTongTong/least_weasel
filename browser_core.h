@@ -44,20 +44,18 @@ int DNS(char *website ,struct w_s_d * web_socket_data)//网址
     return 0;
 }
 //连接到网站服务器
-int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
+int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock info
 {
     int sfd,s_n,r_n;//socket filedescription
     int d = web_socket_data->website_addrinfo->ai_family;//socket domain 
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    char sbuff[BUFSIZ]="";
-    char rbuff[BUFSIZ],*rdata,*sdata;
+    char rbuff[BUFSIZ],*rdata;
     int nbuff=0;
     memset(rbuff,0,BUFSIZ);
-    //memset(sbuff,0,BUFSIZ);
-    sdata=(char*)malloc(BUFSIZ);
     rdata=(char*)malloc(BUFSIZ);
+    FILE *out;
     if ((sfd = socket(d,t,p)))
     {
         //set port number F!U!C!K! 否则会报错 “connect(): Can't assign requested address ” ！！！！！！
@@ -81,7 +79,7 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
         {
             printf("connect successfully\n");
             //send and receive data  both max size is 1Mb
-            if ((send(sfd,sbuff,BUFSIZ,0)==-1))
+            if ((send(sfd,sdata,BUFSIZ,0)==-1))
             {
                 perror("send()");
             }
@@ -100,6 +98,11 @@ int C2Ws(struct w_s_d * web_socket_data)// C2Ws(websit server sock info
             {
                 perror("recv()");
             }
+            if ((out=fopen("web/1.txt","w+"))==NULL)
+            {
+                P_E(errno,"open request.txt");
+            }
+            fwrite(rdata,1,nbuff,out);
         }
     }
     
