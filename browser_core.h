@@ -70,7 +70,7 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
             break;
         }
         printf("connect to |%s|\n",web_socket_data->website);
-        //此处应该增加 ip 不能工作时则换 if(web_socker_data->next!=NULL then (web_socker_data=web_socker_data->next)->website_addrinfo->ai_addr)
+        //此处应该增加 ip 连接时则切换 if(web_socker_data->next!=NULL then (web_socker_data=web_socker_data->next)->website_addrinfo->ai_addr)
         if ((connect(sfd, web_socket_data->website_addrinfo->ai_addr,len)==-1))
         {
             perror("connect()");
@@ -102,7 +102,7 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
             }
             if ((out=fopen("web/1.html","w"))==NULL)
             {
-                P_E(errno," new ");
+                P_E(errno,"create");
             }
             
             fprintf(out,"%s",rdata);

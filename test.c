@@ -8,23 +8,22 @@ int test(void * point,int size)
     memset(point,0,size);
     return 0;
 }
-int test3()
+int test3(void *a )
 {
-    
-    returan 
+    char * b;
+    b=(char *)a;
+    *b='a';
+    printf("a=%c\n",*((char *)a));
+    return 1 ;
 }
 int main(){
-    char *a,*b;
-    a=malloc(3);
-    b=malloc(3);
-    char arr1[3]={'a','b','\n'};
-    a=arr1;
-    for (size_t i = 0; i < 10; i++)
-    {
-       P_Ap(b,i*3,a,3);
-    }
-    
-
-    printf("b[]=%s",b);
-    return 0 ;
+    char a[3]={'1','2','3'};
+    char *b;
+    b=malloc(1);
+    *b='a';
+    BBB(b,1,a,3);
+    char * char_a;
+    int * int_a;
+    printf("char*: %lu ,int *:%lu\n",sizeof(char_a),sizeof(int_a));
+    printf("%s",b);
 }
