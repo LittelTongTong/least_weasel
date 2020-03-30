@@ -17,13 +17,14 @@ int test3(void *a )
     return 1 ;
 }
 int main(){
-    char a[3]={'1','2','3'};
-    char *b;
-    b=malloc(1);
-    *b='a';
-    BBB(b,1,a,3);
-    char * char_a;
-    int * int_a;
-    printf("char*: %lu ,int *:%lu\n",sizeof(char_a),sizeof(int_a));
-    printf("%s",b);
+    char * a=malloc(1);
+    char b[4]={'a','b','c','d'};
+    int j=0;
+    
+    for (int  i = 0; i < 100; i++)
+    {
+        j=BBB(&a,j,b,4);
+        printf("%d %s\n",i,a);
+    }
+    printf("%s",a);
 }

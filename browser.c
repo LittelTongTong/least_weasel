@@ -13,7 +13,7 @@ int main()
     unsigned int n_web; //number of website in website.txt 
     FILE * p_website;
     //把website.txt读入内存
-    printf(">>读入网址<<\n");
+    printf(">>>读入网址<<<\n");
     if((p_website=fopen("website/website.txt","r"))==NULL)
     {
         P_E(-1,"Error:openfile\n");
@@ -51,16 +51,16 @@ int main()
     P_S_l(n_web,weblist);
     printf("|**读入%d个网址**|\n",n_web);
     //以上代码不符合规范，后期修改
-    printf(">>>>>end<<<<<\n\n");
+    printf(">>>end<<<\n\n");
 
     //DNS 服务
-    printf(">>DNS<<\n");
+    printf(">>>DNS<<<\n");
     for (int i = 0; i < n_web; i++)
     {
        DNS(weblist[i],&web_s_data[i]);
        //AI_2_RI(web_s_data[i].website_addrinfo,s);
     }
-    printf(">>>>>end<<<<<\n\n");
+    printf(">>>end<<<\n\n");
 
     //建立与服务器连接并传输（接收）数据
     printf(">>connect website server<<\n");
@@ -69,17 +69,17 @@ int main()
     int f_s;
     for (int  i = 0; i < n_web; i++)
     {
-        if ((in=fopen("website/request.txt","r"))==NULL) // request list 替代
+        if ((in=fopen("template/request","r"))==NULL) // request list 替代
         {
             P_E(errno,"open request.txt");
         }
         fseek(in,0,SEEK_END);
         f_s=ftell(in);
         rewind(in);
-        sdata = malloc(sizeof(char)*f_s);
-        fread(sdata,1,f_s,in);
+        sdata = malloc(sizeof(char)*f_s+1);
+        memset(sdata,0,sizeof(char)*f_s+1);
+        fread(sdata,sizeof(char)*f_s,1,in);
         fclose(in);
-        printf("\nsdata:%s\n",sdata);
         C2Ws(&web_s_data[i],sdata);
     }
     return 0;
