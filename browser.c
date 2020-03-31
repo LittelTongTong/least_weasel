@@ -69,16 +69,20 @@ int main()
     int f_s;
     for (int  i = 0; i < n_web; i++)
     {
-        if ((in=fopen("template/request","r"))==NULL) // request list 替代
+        if ((in=fopen("template/request","rb"))==NULL) // request list 替代
         {
             P_E(errno,"open request.txt");
         }
         fseek(in,0,SEEK_END);
         f_s=ftell(in);
+        printf("size_%d,%lu\n",f_s,sizeof(char)*f_s);
         rewind(in);
-        sdata = malloc(sizeof(char)*f_s+1);
-        memset(sdata,0,sizeof(char)*f_s+1);
+        sdata = malloc(sizeof(char)*f_s+3);
+        memset(sdata,0,sizeof(char)*f_s+3);
         fread(sdata,sizeof(char)*f_s,1,in);
+        sdata[f_s]='\n';
+        sdata[f_s+1]='\r';
+        sdata[f_s+2]='\n';
         fclose(in);
         C2Ws(&web_s_data[i],sdata);
     }

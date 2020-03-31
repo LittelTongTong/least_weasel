@@ -112,10 +112,12 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
                 }
             }
             fclose(out);
+            
             for (int i = 0; i < nbuff; i++)
             {
                 printf("%c",*(rdata+i));
             }
+            
             
         }
     }
