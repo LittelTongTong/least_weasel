@@ -69,6 +69,7 @@ int BBB(char **dest,int sz,char *sour,int s_sz)//buffer by buffer and return siz
 	for (size_t i = 0; i < s_sz; i++)
 	{
 		*((*dest)+i+sz) =*(sour+i);
+		//printf("%c",*(sour+i));
 	}
 	return sz+s_sz ;
 }

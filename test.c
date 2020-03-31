@@ -17,14 +17,15 @@ int test3(void *a )
     return 1 ;
 }
 int main(){
-    char * a=malloc(1);
-    char b[4]={'a','b','c','d'};
-    int j=0;
-    
-    for (int  i = 0; i < 100; i++)
+    char b[18]="d<>/\n\rj做ai";
+    for (int i = 0; i < 18; i++)
     {
-        j=BBB(&a,j,b,4);
-        printf("%d %s\n",i,a);
+        printf("%c",b[i]);
     }
-    printf("%s",a);
+    FILE *in= fopen("1","w");
+    for (int i = 0; i < 18; i++)
+    {
+        fputc(b[i],in);
+    }
+    
 }

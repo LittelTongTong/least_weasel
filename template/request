@@ -1,6 +1,7 @@
-GET / HTTP/1.1
+GET /s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=fuck&rsv_t=24e1QbPYPNdf4RzUK%2F5q3t1LXLwU90TvFXSDAlhzkjsr%2F4pqd1ufYCAqe%2BI&rsv_enter=1&rsv_dl=tb&rsv_sug3=4&rsv_sug2=0&inputT=364&rsv_sug4=488 HTTP/1.1
 Host: www.baidu.com
 Connection: keep-alive
-Cache-Control: max-age=0
+Cache-Control: 
 Upgrade-Insecure-Requests: 1
+Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8
 
