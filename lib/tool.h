@@ -8,7 +8,7 @@ time_t star_t,end_t;
 float timer()
 {
 	float i=difftime(end_t,star_t);
-	printf("runtime:%f\n",i );
+	printf("runtime:%f\n",i/CLOCKS_PER_SEC);
 	star_t=0;
 	end_t=0;
 	return  i;
@@ -68,7 +68,7 @@ int BBB(char **dest,int sz,char *sour,int s_sz)//buffer by buffer and return siz
 	*dest=temp;
 	for (size_t i = 0; i < s_sz; i++)
 	{
-		*((*dest)+i+sz) =*(sour+i);
+		*(temp+i+sz) =*(sour+i);
 		//printf("%c",*(sour+i));
 	}
 	return sz+s_sz ;

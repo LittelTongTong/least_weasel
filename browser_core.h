@@ -7,6 +7,7 @@
 #include<arpa/inet.h>
 #include<unistd.h>
 #define M_N_W 100 
+#define B_BUF 3072
 //website socket information 
 struct w_s_d
 {
@@ -44,17 +45,17 @@ int DNS(char *website ,struct w_s_d * web_socket_data)//网址
     return 0;
 }
 //连接到网站服务器
-int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock info
+int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit server sock info
 {
-    int sfd,s_n,r_n;//socket filedescription
+    int sfd,s_n,r_n=0;//socket filedescription
     int d = web_socket_data->website_addrinfo->ai_family;//socket domain 
     int t = web_socket_data->website_addrinfo->ai_socktype;//socket type 
     int p = web_socket_data->website_addrinfo->ai_protocol;//socket protocol 
     size_t len =web_socket_data->website_addrinfo->ai_addr->sa_len;
-    char rbuff[BUFSIZ],*rdata;
+    char rbuff[B_BUF],*rdata;
     int nbuff=0;
-    memset(rbuff,0,BUFSIZ);
-    rdata=(char*)malloc(BUFSIZ);
+    memset(rbuff,0,B_BUF);
+    rdata=(char*)malloc(B_BUF);
     FILE *out;
     if ((sfd = socket(d,t,p)))
     {
@@ -79,7 +80,7 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
         {
             printf("connect successfully\n");
             //send and receive data  both max size is 1Mb
-            if ((send(sfd,sdata,BUFSIZ,0)==-1))
+            if ((send(sfd,sdata,s_size,0)==-1))
             {
                 perror("send()");
             }
@@ -87,17 +88,19 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
             {
                 printf("\n>>>successfully send a request<<<\n%s\n>>>end<<<\n\n",sdata);
             }
-            
-            do
+            while ((r_n=recv(sfd,rbuff,B_BUF,0))!=-1)
             {
-                r_n=recv(sfd,rbuff,BUFSIZ,0);
-                BBB(&rdata,nbuff,rbuff,BUFSIZ);
-                memset(rbuff,0,BUFSIZ);
-                nbuff+=BUFSIZ;
-            } while (r_n);
+                //printf("r_n:%d\n",r_n);
+                BBB(&rdata,nbuff,rbuff,B_BUF);
+                memset(rbuff,0,B_BUF);
+                nbuff+=B_BUF;
+                if (r_n==0)
+                {
+                    break;
+                }
+            }
             if (r_n==-1)
             {
-                printf("flik\n");
                 perror("recv()");
             }
             if ((out=fopen("web/baidu.html","w"))==NULL)
@@ -112,21 +115,12 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata)// C2Ws(websit server sock i
                 }
             }
             fclose(out);
-            
-            for (int i = 0; i < nbuff; i++)
-            {
-                printf("%c",*(rdata+i));
-            }
-            
-            
         }
     }
-    
     else
     {
         perror("socket()");
     }
     close(sfd);
-
     return 0 ; 
 }
