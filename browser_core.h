@@ -103,7 +103,9 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
             {
                 perror("recv()");
             }
-            if ((out=fopen("web/baidu.html","w"))==NULL)
+            char filename[1024];
+            sprintf(filename,"web/%s.html",web_socket_data->website);
+            if ((out=fopen(filename,"w"))==NULL)
             {
                 P_E(errno,"create");
             }

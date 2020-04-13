@@ -23,7 +23,6 @@ int main()
     {
         char c ; 
         static int row=0 ,column=0;
-        
         c=fgetc(p_website);
         if (c=='\n'&& column!=0)
         {
@@ -72,6 +71,7 @@ int main()
     { 
         char request_header[4096];
         char URI[1024]="/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=600989";
+        
         memset(request_header,0,4096);
         sprintf(request_header,"GET %s HTTP/1.1\r\nHost: %s\r\n",URI,weblist[i]);
         strcat(request_header,tail);
