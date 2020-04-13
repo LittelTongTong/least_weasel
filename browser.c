@@ -2,6 +2,7 @@
 #include"lib/tool.h"
 #include"browser_core.h"
 #include<sys/socket.h>
+#include"browser.h"
 int main()
 {
     char s[100];
@@ -68,40 +69,13 @@ int main()
     FILE * in;
     int f_s;
     for (int  i = 0; i < n_web; i++)
-    {
-        if ((in=fopen("template/request","rb"))==NULL) // request list 替代
-        {
-            P_E(errno,"open request.txt");
-        }
-        fseek(in,0,SEEK_END);
-        f_s=ftell(in);
-        printf("size_%d,%lu\n",f_s,sizeof(char)*f_s);
-        rewind(in);
-        sdata = malloc(sizeof(char)*f_s+3);
-        memset(sdata,0,sizeof(char)*f_s+3);
-        fread(sdata,sizeof(char)*f_s,1,in);
-        sdata[f_s]='\n';
-        sdata[f_s+1]='\r';
-        sdata[f_s+2]='\n';
-        fclose(in);
-        char * sdata2=\
-        "\
-GET /assortment/stock/list/info/company/index.shtml?COMPANY_CODE=600989 HTTP/1.1\r\n\
-Host: www.sse.com.cn\r\n\
-Connection: keep-alive\r\n\
-Cache-Control:\r\n\
-Upgrade-Insecure-Requests: 1\r\n\
-Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8\r\n\
-Accept-Encoding: deflate\r\n\
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n\
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36\r\n\
-\r\n";  
-        printf("time:%ld",time(NULL));
-        clock_t star= clock();
-        C2Ws(&web_s_data[i],sdata2,strlen(sdata2));
-        printf("runtime:%f",difftime(clock(),star)/ CLOCKS_PER_SEC );
-        printf("time:%ld",time(NULL));
-        
+    { 
+        char request_header[4096];
+        char URI[1024]="/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=600989";
+        memset(request_header,0,4096);
+        sprintf(request_header,"GET %s HTTP/1.1\r\nHost: %s\r\n",URI,weblist[i]);
+        strcat(request_header,tail);
+        C2Ws(&web_s_data[i],request_header,4096);
     }
     return 0;
 
