@@ -8,12 +8,51 @@
 #include<unistd.h>
 #define M_N_W 100 
 #define B_BUF 3072
+char PNG_EOF[]={0x60,0x82};//PNG
+char N_EOF[]={'\r','\n','\r','\n'};//normal EOF
 //website socket information 
 struct w_s_d
 {
     char * website;
     struct addrinfo * website_addrinfo;
 };
+//Find the customized EOF in file     
+int FTCE(void * data,size_t s_data,void * F_EOF,size_t s_F_EOF)
+{
+    for (size_t i = 0; i < s_data-s_F_EOF; i++)
+    {
+        if ((memcmp(data+i,F_EOF,s_F_EOF))==0)
+        {
+            return i+s_F_EOF;
+        }
+        
+    }
+    return -1;
+}
+//Be a file without header 
+int BFWH(void * data,size_t s_data,char *name)
+{
+    
+    int p=FTCE(data,s_data, N_EOF, 4);
+    FILE *header =fopen("header.txt","w");
+    if (header==NULL)
+    {
+        perror("failed to create file");
+        exit(-1);
+    }
+    fwrite(data,p,1,header);
+    fclose(header);
+    FILE *contents =fopen(name,"w");
+    if (contents==NULL)
+    {
+        perror("failed to create file in content");
+        exit(-1);
+    }
+    fwrite(data+p,s_data-p,1,contents);
+    fclose(contents);
+    return 0 ;
+}
+
 //convert  addrinfo  to readable ip and print 
 int AI_2_RI(struct addrinfo* info,char *string )
 { 
@@ -79,7 +118,6 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
         else
         {
             printf("connect successfully\n");
-            //send and receive data  both max size is 1Mb
             if ((send(sfd,sdata,s_size,0)==-1))
             {
                 perror("send()");
@@ -88,35 +126,34 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
             {
                 printf("\n>>>successfully send a request<<<\n%s\n>>>end<<<\n\n",sdata);
             }
-            while ((r_n=recv(sfd,rbuff,B_BUF,0))!=-1)
+            char *eob_p;//end of buff;
+            while ((r_n=recv(sfd,rbuff,B_BUF,MSG_EOF))!=-1)
             {
-                //printf("r_n:%d\n",r_n);
                 BBB(&rdata,nbuff,rbuff,B_BUF);
-                memset(rbuff,0,B_BUF);
-                nbuff+=B_BUF;
-                if (r_n==0)
+                nbuff+=r_n;
+                 //detect EOF
+                eob_p=rbuff+r_n-2;
+                //printf("r_n:%d\n",r_n);
+                if((memcmp(eob_p,PNG_EOF,2))==0)//PNG
                 {
+                    char NWE[BUFSIZ];//name with extension 
+                    sprintf(NWE,"%s.png",web_socket_data->website);
+                    BFWH(rdata,nbuff,NWE);
                     break;
                 }
+                if (r_n==0)//HTML
+                {
+                    char NWE[BUFSIZ];//name with extension 
+                    sprintf(NWE,"%s.HTML",web_socket_data->website);
+                    BFWH(rdata,nbuff,NWE);
+                    break;
+                }
+                memset(rbuff,0,B_BUF);
             }
             if (r_n==-1)
             {
                 perror("recv()");
             }
-            char filename[1024];
-            sprintf(filename,"web/%s.html",web_socket_data->website);
-            if ((out=fopen(filename,"w"))==NULL)
-            {
-                P_E(errno,"create");
-            }
-            for (int i = 0; i < nbuff; i++)//去文件的'\0'
-            {
-                if (*(rdata+i)!=0)
-                {
-                    fprintf(out,"%c",*(rdata+i));
-                }
-            }
-            fclose(out);
         }
     }
     else

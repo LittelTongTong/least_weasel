@@ -58,7 +58,7 @@ int PL( int j ,  char *list)//print string list content
 	return 0;
 }
 
-int BBB(char **dest,int sz,char *sour,int s_sz)//buffer by buffer and return size of buff_dest (Buff_dest[i+j]=Buff_dest[i]+Buff_sour[j])
+int BBB( char **dest,int sz,char *sour,int s_sz)//buffer by buffer and return size of buff_dest (Buff_dest[i+j]=Buff_dest[i]+Buff_sour[j])
 {
 	char *temp; 
 	if((temp=realloc(*dest,sz+s_sz))==NULL)
