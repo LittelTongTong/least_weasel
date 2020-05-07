@@ -70,7 +70,7 @@ int main()
     for (int  i = 0; i < n_web; i++)
     { 
         char request_header[4096];
-        char URI[1024]="/";
+        char URI[1024]="/images/webappicon/icon-hires.png;wa8d1b458e266a79f3";
         memset(request_header,0,4096);
         sprintf(request_header,"GET %s HTTP/1.1\r\nHost: %s\r\n",URI,weblist[i]);
         strcat(request_header,tail);

@@ -8,7 +8,7 @@
 #include<unistd.h>
 #define M_N_W 100 
 #define B_BUF 3072
-char PNG_EOF[]={0x60,0x82};//PNG
+char PNG_EOF[]={0x60,0x82};//PNG EOF 
 char N_EOF[]={'\r','\n','\r','\n'};//normal EOF
 //website socket information 
 struct w_s_d
@@ -16,7 +16,7 @@ struct w_s_d
     char * website;
     struct addrinfo * website_addrinfo;
 };
-//Find the customized EOF in file     
+//Find the customized EOF in BUFF     
 int FTCE(void * data,size_t s_data,void * F_EOF,size_t s_F_EOF)
 {
     for (size_t i = 0; i < s_data-s_F_EOF; i++)
@@ -37,7 +37,7 @@ int BFWH(void * data,size_t s_data,char *name)
     FILE *header =fopen("header.txt","w");
     if (header==NULL)
     {
-        perror("failed to create file");
+        perror("failed to create header file");
         exit(-1);
     }
     fwrite(data,p,1,header);
@@ -45,14 +45,13 @@ int BFWH(void * data,size_t s_data,char *name)
     FILE *contents =fopen(name,"w");
     if (contents==NULL)
     {
-        perror("failed to create file in content");
+        perror("failed to create content file");
         exit(-1);
     }
     fwrite(data+p,s_data-p,1,contents);
     fclose(contents);
     return 0 ;
 }
-
 //convert  addrinfo  to readable ip and print 
 int AI_2_RI(struct addrinfo* info,char *string )
 { 
@@ -143,7 +142,7 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
                 }
                 if (r_n==0)//HTML
                 {
-                    char NWE[BUFSIZ];//name with extension 
+                    char NWE[BUFSIZ];
                     sprintf(NWE,"%s.HTML",web_socket_data->website);
                     BFWH(rdata,nbuff,NWE);
                     break;

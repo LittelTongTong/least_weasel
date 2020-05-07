@@ -1,10 +1,15 @@
 HTTP/1.1 200 OK
-Date: Fri, 17 Apr 2020 14:57:06 GMT
-Server: Apache
-Accept-Ranges: none
-Keep-Alive: timeout=15, max=100
+Date: Wed, 06 May 2020 20:09:42 GMT
 Connection: Keep-Alive
-Content-Type: text/html
-X-WA-Info: [V2.S10203.A12708.P79382.N26790.RN0.U0].[OT/html.OG/pages]
-Transfer-Encoding: chunked
+Server: Apache
+Last-Modified: Wed, 02 Sep 2015 07:54:27 GMT
+ETag: "WA8d1b458e266a79f3"
+Keep-Alive: timeout=15, max=99
+Content-Type: image/png
+Expires: Wed, 04 Nov 2020 20:09:42 GMT
+Cache-Control: public, max-age=15724800
+Age: 7491
+Accept-Ranges: bytes
+Content-Length: 11241
+X-WA-Info: [V2.S11101.A12708.P79382.N26821.RN0.U2845955623].[OT/png.OG/images]
 
