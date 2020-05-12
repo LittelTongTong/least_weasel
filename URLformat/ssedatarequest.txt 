@@ -1,2 +1,10 @@
-获取指数类
-http://yunhq.sse.com.cn:32041//v1/sh1/list/self/000987?callback=jQuery1&select=code%2Cname%2Clast%2Cchg_rate%2Camount%2Copen%2Cprev_close&_=8798150204
+上交所
+{
+    “获取指数据”:http://yunhq.sse.com.cn:32041//v1/sh1/list/self/000987?callback=jQuery1&select=code%2Cname%2Clast%2Cchg_rate%2Camount%2Copen%2Cprev_close&_=8798150204
+    “获取指数信息”:http://yunhq.sse.com.cn:32041//v1/sh1/snap/603019
+}
+深交所
+{
+    获取交易数据
+    http://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=1815_stock&txtDMorJC=000001&txtBeginDate=2020-03-03&txtEndDate=2020-03-05
+}

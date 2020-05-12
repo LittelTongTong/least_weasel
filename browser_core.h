@@ -50,6 +50,7 @@ int BFWH(void * data,size_t s_data,char *name)
     }
     fwrite(data+p,s_data-p,1,contents);
     fclose(contents);
+    printf(" %s download successfully",name);
     return 0 ;
 }
 //convert  addrinfo  to readable ip and print 
@@ -101,7 +102,7 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
         switch (d)
         {
         case AF_INET:
-            ((struct sockaddr_in*)(web_socket_data->website_addrinfo->ai_addr))->sin_port=htons(80);
+            ((struct sockaddr_in*)(web_socket_data->website_addrinfo->ai_addr))->sin_port=htons(32041);
             break;
         case AF_INET6:
             ((struct sockaddr_in6*)(web_socket_data->website_addrinfo->ai_addr))->sin6_port=htons(80);

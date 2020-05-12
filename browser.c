@@ -5,6 +5,7 @@
 #include"browser.h"
 int main()
 {
+    /*
     char s[100];
     //website的socket特性
     struct w_s_d  web_s_data [M_N_W];
@@ -52,16 +53,18 @@ int main()
     printf("|**读入%d个网址**|\n",n_web);
     //以上代码不符合规范，后期修改
     printf(">>>end<<<\n\n");
-
-    //DNS 服务
+    */
+    
+    //DNS 
     printf(">>>DNS<<<\n");
     for (int i = 0; i < n_web; i++)
     {
        DNS(weblist[i],&web_s_data[i]);
        //AI_2_RI(web_s_data[i].website_addrinfo,s);
     }
-    printf(">>>end<<<\n\n");
-
+    printf(">>>DNSend<<<\n\n");
+    //设置网站端口
+    
     //建立与服务器连接并传输（接收）数据
     printf(">>connect website server<<\n");
     char * sdata;
@@ -69,10 +72,10 @@ int main()
     int f_s;
     for (int  i = 0; i < n_web; i++)
     { 
-        char request_header[4096];
-        char URI[1024]="/images/webappicon/icon-hires.png;wa8d1b458e266a79f3";
-        memset(request_header,0,4096);
-        sprintf(request_header,"GET %s HTTP/1.1\r\nHost: %s\r\n",URI,weblist[i]);
+        char request_header[1024];
+        char r_URI[1024]="//v1/sh1/snap/603019";//request URL 
+        memset(request_header,0,1024);
+        sprintf(request_header,"GET %s HTTP/1.1\r\nHost: %s\r\n",r_URI,weblist[i]);
         strcat(request_header,tail);
         C2Ws(&web_s_data[i],request_header,4096);
     }
