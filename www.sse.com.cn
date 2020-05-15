@@ -1,4 +1,4 @@
-7698
+7bc0
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +17,8 @@
 
 
 <!-- CSS -->
-<link rel="stylesheet" href="http://www.sse.com.cn/css/sse_indexcss.css;wa406d73acae3d7c1d">
-<link rel="stylesheet" href="http://www.sse.com.cn/css/sse_indexcss_20181217.css;wa7454eb1b1aabaf09">
+<link rel="stylesheet" href="http://www.sse.com.cn/css/sse_indexcss.css;wa7ab318ce2b59317c">
+<link rel="stylesheet" href="http://www.sse.com.cn/css/sse_indexcss_20181217.css;waef24da3c202079a1">
 <!--[if IE 7]>
 <link href="http://www.sse.com.cn/css/ie7fix.min.css" rel="stylesheet" type="text/css">
 <![endif]-->
@@ -60,7 +60,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="format-detection" content="telephone=no" />
-<script src="http://www.sse.com.cn/js/28full.js;wa99ceb191636fc88e"></script>
+<script src="http://www.sse.com.cn/js/28full.js;wa30b4317b5a9c63ed"></script>
 <script src="http://www.sse.com.cn/js/app/sse_menu_fun.js;waacf9a16fb16a9c70"></script>
 <!--script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script-->
 <!--script src="http://code.jquery.com/jquery-latest.js"></script-->
@@ -299,7 +299,7 @@ img.swiper-slide {cursor: default;}
 <div class="txtScroll-top">
 
 
-<div class="bd"><div class="tempWrap swiper-container" id="SUB_SCROLL_SWIPER"><ul class="infoList swiper-wrapper">    <li class="swiper-slide"><a class="orange" title="" target="_blank" href="http://kcb.sse.com.cn/">科创板注册制</a> <a href="http://sns.sseinfo.com/" target="_blank" title="">上证e互动</a>  <a href="http://ipo.sseinfo.com/" target="_blank" title="">IPO公司信息</a>  <a href="http://training.sseinfo.com/sse/index.do" target="_blank" title="">浦江培训学院</a></li>    <li class="swiper-slide"><a href="http://www.sse.com.cn/disclosure/credibility/supervision/measures/" target="_blank" title="">监管信息公开</a> <a href="http://bond.sse.com.cn/bridge/home/" target="_blank" title="">公司债信息平台</a> <a href="http://edu.sse.com.cn/" target="_blank" title="">投资者教育</a>  <a href="http://vote.sseinfo.com/" target="_blank" title="">网络投票平台</a></li>    <li class="swiper-slide"><a href="https://cnsca.sse.com.cn/" target="_blank" title="">CnSCA在线</a> <a href="http://roadshow.sseinfo.com/" target="_blank" title="">上证路演中心</a></li>    <!--li class="swiper-slide"><a href="#"></a></li--> </ul>    </div>    </div>
+<div class="bd"><div class="tempWrap swiper-container" id="SUB_SCROLL_SWIPER"><ul class="infoList swiper-wrapper">    <li class="swiper-slide"><a class="orange" title="" target="_blank" href="http://kcb.sse.com.cn/">科创板注册制</a> <a href="http://sns.sseinfo.com/" target="_blank" title="">上证e互动</a>  <a href="http://ipo.sseinfo.com/" target="_blank" title="">IPO公司信息</a>  <a href="http://training.sseinfo.com/sse/index.do" target="_blank" title="">浦江学院</a></li>    <li class="swiper-slide"><a href="http://www.sse.com.cn/disclosure/credibility/supervision/measures/" target="_blank" title="">监管信息公开</a> <a href="http://bond.sse.com.cn/bridge/home/" target="_blank" title="">公司债信息平台</a> <a href="http://edu.sse.com.cn/" target="_blank" title="">投资者教育</a>  <a href="http://vote.sseinfo.com/" target="_blank" title="">网络投票平台</a></li>    <li class="swiper-slide"><a href="https://cnsca.sse.com.cn/" target="_blank" title="">CnSCA在线</a> <a href="http://roadshow.sseinfo.com/" target="_blank" title="">上证路演中心</a></li>    <!--li class="swiper-slide"><a href="#"></a></li--> </ul>    </div>    </div>
 
 
 
@@ -425,49 +425,49 @@ img.swiper-slide {cursor: default;}
 <ul>
 <li>
 <div>
-<p><a href="/services/training/news/"  title="上海证券交易所第4期科创板董事会秘书任职资格视频培训通知">培训通知 </p>
+<p><a href="/disclosure/announcement/listing/"  title="鹏华中证高股息龙头交易型开放式指数证券投资基金上市交易公告">上交所公告 </p>
 </a>
-<span><em><a href="/services/training/news/c/c_20200511_5098792.shtml"  title="上海证券交易所第4期科创板董事会秘书任职资格视频培训通知" target="_blank"><i>2020-05-11</i>上海证券交易所第4期科创板董事会秘书任...</a></em></span>                
+<span><em><a href="/disclosure/announcement/listing/c/c_20200512_5100158.shtml"  title="鹏华中证高股息龙头交易型开放式指数证券投资基金上市交易公告" target="_blank"><i>2020-05-13</i>鹏华中证高股息龙头交易型开放式指数证...</a></em></span>                
 </div>
 </li>
 
 <li>
 <div>
-<p><a href="/services/training/news/"  title="关于开设“企业并购重组中的会计处理”网络视频公开课的通知">培训通知 </p>
+<p><a href="/disclosure/announcement/general/"  title="关于N春秋转（113577）盘中临时停牌的公告">上交所公告 </p>
 </a>
-<span><em><a href="/services/training/news/c/c_20200511_5098669.shtml"  title="关于开设“企业并购重组中的会计处理”网络视频公开课的通知" target="_blank"><i>2020-05-11</i>关于开设“企业并购重组中的会计处理”...</a></em></span>                
+<span><em><a href="/disclosure/announcement/general/c/c_20200513_5100904.shtml"  title="关于N春秋转（113577）盘中临时停牌的公告" target="_blank"><i>2020-05-13</i>关于N春秋转（113577）盘中临时停牌的公...</a></em></span>                
 </div>
 </li>
 
 <li>
 <div>
-<p><a href="/disclosure/announcement/general/"  title="关于19国债08（019618）盘中临时停牌的公告">上交所公告 </p>
+<p><a href="/disclosure/announcement/general/"  title="关于同意方正证券股份有限公司为嘉实中证500成长估值交易型开放式指数证券投资基金提供主流动性服务的公告">上交所公告 </p>
 </a>
-<span><em><a href="/disclosure/announcement/general/c/c_20200511_5098667.shtml"  title="关于19国债08（019618）盘中临时停牌的公告" target="_blank"><i>2020-05-11</i>关于19国债08（019618）盘中临时停牌的...</a></em></span>                
+<span><em><a href="/disclosure/announcement/general/c/c_20200512_5099923.shtml"  title="关于同意方正证券股份有限公司为嘉实中证500成长估值交易型开放式指数证券投资基金提供主流动性服务的公告" target="_blank"><i>2020-05-13</i>关于同意方正证券股份有限公司为嘉实中...</a></em></span>                
 </div>
 </li>
 
 <li>
 <div>
-<p><a href="/disclosure/announcement/listing/"  title="博时沪深300交易型开放式指数证券投资基金上市交易公告">上交所公告 </p>
+<p><a href="/disclosure/announcement/general/"  title="关于同意招商证券股份有限公司为博时沪深300交易型开放式指数证券投资基金提供主流动性服务的公告">上交所公告 </p>
 </a>
-<span><em><a href="/disclosure/announcement/listing/c/c_20200508_5097648.shtml"  title="博时沪深300交易型开放式指数证券投资基金上市交易公告" target="_blank"><i>2020-05-11</i>博时沪深300交易型开放式指数证券投资基...</a></em></span>                
+<span><em><a href="/disclosure/announcement/general/c/c_20200512_5099924.shtml"  title="关于同意招商证券股份有限公司为博时沪深300交易型开放式指数证券投资基金提供主流动性服务的公告" target="_blank"><i>2020-05-13</i>关于同意招商证券股份有限公司为博时沪...</a></em></span>                
 </div>
 </li>
 
 <li>
 <div>
-<p><a href="/disclosure/announcement/general/"  title="关于西藏东方财富证券股份有限公司会员名称变更为东方财富证券股份有限公司的公告">上交所公告 </p>
+<p><a href="/aboutus/research/latest/latestnews/"  title="2020年上证联合研究计划法制系列专项课题对外招标">最新信息 </p>
 </a>
-<span><em><a href="/disclosure/announcement/general/c/c_20200511_5098579.shtml"  title="关于西藏东方财富证券股份有限公司会员名称变更为东方财富证券股份有限公司的公告" target="_blank"><i>2020-05-11</i>关于西藏东方财富证券股份有限公司会员...</a></em></span>                
+<span><em><a href="/aboutus/research/latest/latestnews/c/c_20200512_5099912.shtml"  title="2020年上证联合研究计划法制系列专项课题对外招标" target="_blank"><i>2020-05-12</i>2020年上证联合研究计划法制系列专项课...</a></em></span>                
 </div>
 </li>
 
 <li>
 <div>
-<p><a href="/lawandrules/guide/xyzr/"  title="关于发布上市公司股份协议转让业务相关办理指南的通知">协议转让业务指南与流程 </p>
+<p><a href="/disclosure/announcement/general/"  title="关于同意申万宏源证券有限公司为易方达中证国企一带一路交易型开放式指数证券投资基金提供主流动性服务的公告">上交所公告 </p>
 </a>
-<span><em><a href="/lawandrules/guide/xyzr/c/c_20200508_5098311.shtml"  title="关于发布上市公司股份协议转让业务相关办理指南的通知" target="_blank"><i>2020-05-08</i>关于发布上市公司股份协议转让业务相关...</a></em></span>                
+<span><em><a href="/disclosure/announcement/general/c/c_20200511_5098790.shtml"  title="关于同意申万宏源证券有限公司为易方达中证国企一带一路交易型开放式指数证券投资基金提供主流动性服务的公告" target="_blank"><i>2020-05-12</i>关于同意申万宏源证券有限公司为易方达...</a></em></span>                
 </div>
 </li>
 
@@ -489,14 +489,14 @@ img.swiper-slide {cursor: default;}
 </h2>
 </div><div class="sse_list_1">    
 <dl>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600918_20200512_1.pdf" title="中泰证券首次公开发行股票投资风险特别公告（第三次）" target="_blank" >中泰证券首次公开发行股票投资风险特别公告（第三次）</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600246_20200512_10.pdf" title="万通地产关于签署投资合作备忘录的提示性公告" target="_blank" >万通地产关于签署投资合作备忘录的提示性公告</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_7.pdf" title="佳都科技关于变更保荐机构后重新签订募集资金专户存储三方监管协议的公告" target="_blank" >佳都科技关于变更保荐机构后重新签订募集资金专户存储三方监管协议的公告</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_6.pdf" title="佳都科技关于2020年第四次临时股东大会增加临时提案的公告" target="_blank" >佳都科技关于2020年第四次临时股东大会增加临时提案的公告</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_5.pdf" title="佳都科技独立董事关于公司非公开发行股票引入战略投资者相关事项的独立意见" target="_blank" >佳都科技独立董事关于公司非公开发行股票引入战略投资者相关事项的独立意见</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_4.pdf" title="佳都科技关于引进战略投资者并签署战略合作协议的公告" target="_blank" >佳都科技关于引进战略投资者并签署战略合作协议的公告</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_3.pdf" title="佳都科技关于增加经营范围并修订公司章程的公告" target="_blank" >佳都科技关于增加经营范围并修订公司章程的公告</a></dd>
-<dd><span>2020-05-12</span><a href="/disclosure/listedinfo/announcement/c/2020-05-12/600728_20200512_2.pdf" title="佳都科技第九届监事会2020年第四次临时会议决议公告" target="_blank" >佳都科技第九届监事会2020年第四次临时会议决议公告</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/600518_20200515_1.pdf" title="ST康美关于收到中国证券监督管理委员会《行政处罚决定书》及《市场禁入决定书》的公告" target="_blank" >ST康美关于收到中国证券监督管理委员会《行政处罚决定书》及《市场禁入决定书》的公告...</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/605168_20200515_1.pdf" title="三人行首次公开发行股票发行公告" target="_blank" >三人行首次公开发行股票发行公告</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/605166_20200515_4.pdf" title="聚合顺首次公开发行股票投资风险特别公告（第一次）" target="_blank" >聚合顺首次公开发行股票投资风险特别公告（第一次）</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/605166_20200515_3.pdf" title="聚合顺首次公开发行股票招股说明书摘要" target="_blank" >聚合顺首次公开发行股票招股说明书摘要</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/605166_20200515_2.pdf" title="聚合顺首次公开发行股票招股说明书" target="_blank" >聚合顺首次公开发行股票招股说明书</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/605166_20200515_1.pdf" title="聚合顺首次公开发行股票初步询价结果及推迟发行公告" target="_blank" >聚合顺首次公开发行股票初步询价结果及推迟发行公告</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/600594_20200515_2.pdf" title="益佰制药：高盛高华证券有限责任公司关于上海证券交易所《关于对贵州益佰制药股份有限公司有关募集资金永久补流事项的问询函》的核查意见" target="_blank" >益佰制药：高盛高华证券有限责任公司关于上海证券交易所《关于对贵州益佰制药股份有限...</a></dd>
+<dd><span>2020-05-15</span><a href="/disclosure/listedinfo/announcement/c/2020-05-15/600594_20200515_1.pdf" title="益佰制药关于上海证券交易所问询函的回复公告" target="_blank" >益佰制药关于上海证券交易所问询函的回复公告</a></dd>
 </dl>
 </div>
 
@@ -519,9 +519,7 @@ img.swiper-slide {cursor: default;}
 </div>
 <div class="item"><a href="http://edu.sse.com.cn/" target="_blank">
 <img lazy-src="/home/subgroup/pic-switch/a/20170526/45a894ebe03e39c1bc85067ef45c2c97.jpg"></a>
-</di
-40b0
-v>
+</div>
 </div> 
 </div>
 </div>
@@ -544,7 +542,9 @@ v>
 <li><a href="http://biz.sse.com.cn/sseportal/ps/zhs/ssnss/voteonline_lc_process.jsp" target="_blank">股东大会网络投票</a></li>  
 <li><a href="/services/ipo/home/" target="_blank">IPO业务专栏</a></li>  
 <li><a href="http://roadshow.sseinfo.com/" target="_blank">上证路演中心</a></li>  
-<li><a href="/services/tradingservice/tradingtech/home/" target="_blank">交易技术支持</a></li>  
+<li><a href="/services/tradingservice/tradi
+4535
+ngtech/home/" target="_blank">交易技术支持</a></li>  
 <li><a href="http://bond.sse.com.cn/" target="_blank">上证债券信息网</a></li>  
 <li><a href="/services/tradingservice/margin/home/" target="_blank">融资融券</a></li>  
 <li><a href="/services/training/home/" target="_blank">培训服务</a></li>  
@@ -589,10 +589,10 @@ v>
 </a></li><li><a href="#kshare" data-toggle="tab">科创板
 </a></li></ul><div class="tab-content"><div class="tab-pane" id="1864">
 <div class="sse_home_in_table2">
-<span>2020-05-11</span>
+<span>2020-05-14</span>
 <script type = "text/javascript" >
 var home_sjtj = {};
-home_sjtj.dataStatisticDate = '2020-05-11';
+home_sjtj.dataStatisticDate = '2020-05-14';
 </script>
 
 <table class="table">
@@ -616,13 +616,13 @@ home_sjtj.dataStatisticDate = '2020-05-11';
 <td>
 <i>总股本/亿股</i>
 
-<em>41097.56</em>
+<em>41103.54</em>
 
 </td>
 <td>
 <i>流通股本/亿股</i>
 
-<em>35908.4</em>
+<em>35916.81</em>
 </td>            
 </tr>
 
@@ -630,18 +630,18 @@ home_sjtj.dataStatisticDate = '2020-05-11';
 <td>
 <i>总市值/亿元</i>
 
-<em>352657.09</em>
+<em>350250.13</em>
 </td>
 <td>
 <i>流通市值/亿元</i>
 
-<em>293826.93</em>
+<em>291230.87</em>
 </td>
 </tr>
 <tr>
 <td>
 <i>平均市盈率/倍</i>
-<em>13.24</em>
+<em>13.14</em>
 </td>
 
 </tr> 
@@ -649,11 +649,11 @@ home_sjtj.dataStatisticDate = '2020-05-11';
 <script type = "text/javascript" >
 home_sjtj.companyNumber = '1620';
 home_sjtj.stockNumber = '1663';
-home_sjtj.iss_vol = '41097.56';
-home_sjtj.ngt_vol = '35908.4';
-home_sjtj.mkt_value = '352657.09';
-home_sjtj.negotiable_value = '293826.93';
-home_sjtj.ratioOfPe = '13.24';
+home_sjtj.iss_vol = '41103.54';
+home_sjtj.ngt_vol = '35916.81';
+home_sjtj.mkt_value = '350250.13';
+home_sjtj.negotiable_value = '291230.87';
+home_sjtj.ratioOfPe = '13.14';
 
 </script>
 </tbody>
@@ -662,10 +662,10 @@ home_sjtj.ratioOfPe = '13.24';
 </div>
 </div><div class="tab-pane" id="ashare">
 <div class="sse_home_in_table2">
-<span>2020-05-11</span>
+<span>2020-05-14</span>
 <script type = "text/javascript" >
 var home_sjtj_zb = {};
-home_sjtj_zb.dataStatisticDate = '2020-05-11';
+home_sjtj_zb.dataStatisticDate = '2020-05-14';
 </script>
 
 <table class="table">
@@ -685,22 +685,22 @@ home_sjtj_zb.dataStatisticDate = '2020-05-11';
 
 <td>
 <i>总股本/亿股</i>
-<em>40760.80</em>
+<em>40766.78</em>
 </td>
 <td>
 <i>流通股本/亿股</i>
-<em>35855.96</em>
+<em>35864.32</em>
 </td>
 </tr>
 <tr>
 
 <td>
 <i>总市值/亿元</i>
-<em>337640.35</em>
+<em>334937.80</em>
 </td>
 <td>
 <i>流通市值/亿元</i>
-<em>291465.49</em>
+<em>288819.79</em>
 </td>
 </tr>
 <tr>
@@ -708,18 +708,18 @@ home_sjtj_zb.dataStatisticDate = '2020-05-11';
 
 <td>
 <i>平均市盈率/倍</i>
-<em>12.78</em>
+<em>12.68</em>
 </td>
 
 </tr>  
 <script type = "text/javascript" >
 home_sjtj_zb.companyNumber = '1518';
 home_sjtj_zb.stockNumber = '1561';
-home_sjtj_zb.iss_vol = '40760.80';
-home_sjtj_zb.ngt_vol = '35855.96';
-home_sjtj_zb.mkt_value = '337640.35';
-home_sjtj_zb.negotiable_value = '291465.49';
-home_sjtj_zb.ratioOfPe = '12.78';
+home_sjtj_zb.iss_vol = '40766.78';
+home_sjtj_zb.ngt_vol = '35864.32';
+home_sjtj_zb.mkt_value = '334937.80';
+home_sjtj_zb.negotiable_value = '288819.79';
+home_sjtj_zb.ratioOfPe = '12.68';
 
 </script>
 </tbody>
@@ -727,10 +727,10 @@ home_sjtj_zb.ratioOfPe = '12.78';
 </div>
 </div><div class="tab-pane" id="kshare">
 <div class="sse_home_in_table2">
-<span>2020-05-11</span>
+<span>2020-05-14</span>
 <script type = "text/javascript" >
 var home_sjtj_kcb = {};
-home_sjtj_kcb.dataStatisticDate = '2020-05-11';
+home_sjtj_kcb.dataStatisticDate = '2020-05-14';
 </script>
 
 <table class="table">
@@ -753,25 +753,25 @@ home_sjtj_kcb.dataStatisticDate = '2020-05-11';
 </td>
 <td>
 <i>流通股本/亿股</i>
-<em>52.44</em>
+<em>52.49</em>
 </td>
 </tr>
 <tr>
 
 <td>
 <i>总市值/亿元</i>
-<em>15016.74</em>
+<em>15312.33</em>
 </td>
 <td>
 <i>流通市值/亿元</i>
-<em>2361.44</em>
+<em>2411.08</em>
 </td>
 </tr>
 <tr>
 
 <td>
 <i>平均市盈率/倍</i>
-<em>75.43</em>
+<em>76.79</em>
 </td>
 
 </tr>  
@@ -779,10 +779,10 @@ home_sjtj_kcb.dataStatisticDate = '2020-05-11';
 home_sjtj_kcb.companyNumber = '102';
 home_sjtj_kcb.stockNumber = '102';
 home_sjtj_kcb.iss_vol = '336.76';
-home_sjtj_kcb.ngt_vol = '52.44';
-home_sjtj_kcb.mkt_value = '15016.74';
-home_sjtj_kcb.negotiable_value = '2361.44';
-home_sjtj_kcb.ratioOfPe = '75.43';
+home_sjtj_kcb.ngt_vol = '52.49';
+home_sjtj_kcb.mkt_value = '15312.33';
+home_sjtj_kcb.negotiable_value = '2411.08';
+home_sjtj_kcb.ratioOfPe = '76.79';
 
 </script>
 </tbody>
@@ -943,15 +943,13 @@ width: 100% !important;
 <script type="text/javascript">
 var require = {
 //js file version,pls change it with any updating
-urlArgs : "v=3.2.8q"
+urlArgs : "v=3.2.9x"
 };
 var webVersion = require.urlArgs;
 var inspectMgr=(function(){
 //wait for static inspect timeout
 var staticIndex=1;/*index=0 use the static,otherwise use the local site file*/
-var staticUrl= "//static.sse.com.
-84d
-cn/js/lib/inspect.js"
+var staticUrl= "//static.sse.com.cn/js/lib/inspect.js"
 var waitMilliSeconds=300;
 var isIE = document.all && !window.atob;
 if (isIE) {
@@ -1015,7 +1013,7 @@ sseWechatAssistant.init('wx8fd294d57db35754');
 <!-- 页脚end -->
 
 
-<span id="staticTime" staticTime="2020-05-12 05:24:21"  style="display:none"></span></body>
+<span id="staticTime" staticTime="2020-05-15 06:54:21"  style="display:none"></span></body>
 </html>
 
 

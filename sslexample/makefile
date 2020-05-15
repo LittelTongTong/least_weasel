@@ -1,0 +1,1 @@
+gcc -Wall -o sslclient  -L /usr/local/opt/openssl/lib  -lssl -lcrypto -Wall sslclient.c 

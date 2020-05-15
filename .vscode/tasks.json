@@ -6,11 +6,15 @@
             "command": "/usr/bin/clang",
             "args": [
                 "-g",
+                "-Wall",
+                "-v",
                 "${workspaceFolder}/browser.c",
-                
+                "-L",
+                "/usr/local/opt/openssl/lib",
+                "-lcrypto",
+                "-lssl",
                 "-o",
                 "${workspaceFolder}/browser"
-                
             ],
             "options": {
                 "cwd": "/usr/bin"

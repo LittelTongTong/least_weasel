@@ -6,17 +6,24 @@
 #include<netdb.h>
 #include<arpa/inet.h>
 #include<unistd.h>
-#define M_N_W 100 
+#ifndef LeastWeasel
 #define B_BUF 3072
+#define HTTP 1 
+#define HTTPS 2
+#endif
 char PNG_EOF[]={0x60,0x82};//PNG EOF 
-char N_EOF[]={'\r','\n','\r','\n'};//normal EOF
+char H_EOF[]={'\r','\n','\r','\n'};//header EOF
 //website socket information 
 struct w_s_d
 {
     char * website;
     struct addrinfo * website_addrinfo;
 };
-//Find the customized EOF in BUFF     
+//Find the customized EOF in BUFF    
+void S_P(int port,struct w_s_d web_sock_info)
+{
+
+}
 int FTCE(void * data,size_t s_data,void * F_EOF,size_t s_F_EOF)
 {
     for (size_t i = 0; i < s_data-s_F_EOF; i++)
@@ -33,7 +40,7 @@ int FTCE(void * data,size_t s_data,void * F_EOF,size_t s_F_EOF)
 int BFWH(void * data,size_t s_data,char *name)
 {
     
-    int p=FTCE(data,s_data, N_EOF, 4);
+    int p=FTCE(data,s_data, H_EOF, 4);
     FILE *header =fopen("header.txt","w");
     if (header==NULL)
     {
@@ -53,9 +60,15 @@ int BFWH(void * data,size_t s_data,char *name)
     printf(" %s download successfully",name);
     return 0 ;
 }
+//split URI
+int S_URI(char *uri)
+{
+    return 0;
+}
 //convert  addrinfo  to readable ip and print 
-int AI_2_RI(struct addrinfo* info,char *string )
+char * AI_2_RI(struct addrinfo* info)
 { 
+    char * string=NULL; 
     if ((info->ai_family)==AF_INET)
     {
         struct sockaddr_in * ip4_socket_addr=(struct sockaddr_in * )(info->ai_addr);
@@ -67,7 +80,7 @@ int AI_2_RI(struct addrinfo* info,char *string )
         inet_ntop(AF_INET6,&(ip6_socket_addr->sin6_addr),string,ip6_socket_addr->sin6_len);
     }
     printf("canonneme:%s 's ip:%s\n",info->ai_canonname,string);
-    return 0;
+    return string;
 }
 //DNS服务
 int DNS(char *website ,struct w_s_d * web_socket_data)//网址
@@ -84,7 +97,7 @@ int DNS(char *website ,struct w_s_d * web_socket_data)//网址
     return 0;
 }
 //连接到网站服务器
-int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit server sock info
+int C2W(struct w_s_d * web_socket_data,int scheme,char *sdata,int s_size)// C2W(websit server sock info
 {
     int sfd,s_n,r_n=0;//socket filedescription
     int d = web_socket_data->website_addrinfo->ai_family;//socket domain 
@@ -95,65 +108,62 @@ int C2Ws(struct w_s_d * web_socket_data,char *sdata,int s_size)// C2Ws(websit se
     int nbuff=0;
     memset(rbuff,0,B_BUF);
     rdata=(char*)malloc(B_BUF);
-    FILE *out;
+    struct  sockaddr * loacl_host;
     if ((sfd = socket(d,t,p)))
     {
-        //set port number F!U!C!K! 否则会报错 “connect(): Can't assign requested address ” ！！！！！！
-        switch (d)
-        {
-        case AF_INET:
-            ((struct sockaddr_in*)(web_socket_data->website_addrinfo->ai_addr))->sin_port=htons(32041);
-            break;
-        case AF_INET6:
-            ((struct sockaddr_in6*)(web_socket_data->website_addrinfo->ai_addr))->sin6_port=htons(80);
-        default:
-            break;
-        }
         printf("connect to |%s|\n",web_socket_data->website);
         //此处应该增加 ip 连接时则切换 if(web_socker_data->next!=NULL then (web_socker_data=web_socker_data->next)->website_addrinfo->ai_addr)
-        if ((connect(sfd, web_socket_data->website_addrinfo->ai_addr,len)==-1))
+        switch (scheme)
         {
-            perror("connect()");
-        }
-        else
-        {
-            printf("connect successfully\n");
-            if ((send(sfd,sdata,s_size,0)==-1))
+        case HTTP:
+            if ((connect(sfd, web_socket_data->website_addrinfo->ai_addr,len)==-1))
             {
-                perror("send()");
+                perror("connect()");
             }
             else
             {
-                printf("\n>>>successfully send a request<<<\n%s\n>>>end<<<\n\n",sdata);
-            }
-            char *eob_p;//end of buff;
-            while ((r_n=recv(sfd,rbuff,B_BUF,MSG_EOF))!=-1)
-            {
-                BBB(&rdata,nbuff,rbuff,B_BUF);
-                nbuff+=r_n;
-                 //detect EOF
-                eob_p=rbuff+r_n-2;
-                //printf("r_n:%d\n",r_n);
-                if((memcmp(eob_p,PNG_EOF,2))==0)//PNG
+                printf("connect successfully\n");
+                if ((send(sfd,sdata,s_size,0)==-1))
                 {
-                    char NWE[BUFSIZ];//name with extension 
-                    sprintf(NWE,"%s.png",web_socket_data->website);
-                    BFWH(rdata,nbuff,NWE);
-                    break;
+                    perror("send()");
                 }
-                if (r_n==0)//HTML
+                else
                 {
-                    char NWE[BUFSIZ];
-                    sprintf(NWE,"%s.HTML",web_socket_data->website);
-                    BFWH(rdata,nbuff,NWE);
-                    break;
+                    printf("\n>>>successfully send a request<<<\n%s\n>>>end<<<\n\n",sdata);
                 }
-                memset(rbuff,0,B_BUF);
+                char *eob_p;//end of buff;
+                while ((r_n=recv(sfd,rbuff,B_BUF,MSG_EOF))!=-1)
+                {
+                    BBB(&rdata,nbuff,rbuff,B_BUF);
+                    nbuff+=r_n;
+                    //detect EOF
+                    eob_p=rbuff+r_n-2;
+                    //printf("r_n:%d\n",r_n);
+                    if((memcmp(eob_p,PNG_EOF,2))==0)//PNG
+                    {
+                        char NWE[BUFSIZ];//name with extension 
+                        sprintf(NWE,"%s.png",web_socket_data->website);
+                        BFWH(rdata,nbuff,NWE);
+                        break;
+                    }
+                    if (r_n==0)//plain text 
+                    {
+                        char NWE[BUFSIZ];
+                        sprintf(NWE,"%s",web_socket_data->website);
+                        BFWH(rdata,nbuff,NWE);
+                        break;
+                    }
+                    memset(rbuff,0,B_BUF);
+                }
+                if (r_n==-1)
+                {
+                    perror("recv()");
+                }
             }
-            if (r_n==-1)
-            {
-                perror("recv()");
-            }
+            break;
+        case HTTPS: //HTTPS
+
+            break;
         }
     }
     else

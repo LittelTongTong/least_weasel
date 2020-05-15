@@ -1,7 +1,8 @@
-HTTP/1.1 200 OK
-Server: nginx
-Date: Mon, 11 May 2020 22:50:04 GMT
-Content-Type: application/json;charset=GB2312
-Content-Length: 278
+HTTP/1.1 301 Moved Permanently
+Server: Tengine
+Date: Fri, 15 May 2020 18:07:09 GMT
+Content-Type: text/html
+Content-Length: 239
 Connection: keep-alive
+Location: https://www.bilibili.com/
 
