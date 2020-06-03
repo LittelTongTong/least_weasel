@@ -13,18 +13,20 @@ float timer()
 	end_t=0;
 	return  i;
 }
-void star() //star timmer
+//star timmer
+void star() 
 {
 	star_t=clock();
 }
 
-float end() //stop timmer and return runtime
+ //stop timmer and return runtime
+float end()
 {
 	end_t=clock();
 	return timer();
 }
-
-int P_E(int en, char * msg)//handle error function and print the error massage
+//handle error function and print the error massage
+int P_E(int en, char * msg)
 {
 	if (en!=0)//failure
 	{
@@ -39,7 +41,8 @@ int P_E(int en, char * msg)//handle error function and print the error massage
 	}
 
 }
-int P_S_l( int j ,  char list[100][64])//print string list content 
+//print string list content 
+int P_S_l( int j ,  char list[100][64])
 {
 	for (int i = 0; i < j; i++)
 	{
@@ -54,11 +57,11 @@ int PL( int j ,  char *list)//print string list content
 	{
 		printf("[%d]=%s\n",i,list+i);
 	}
-	
 	return 0;
 }
+//buffer by buffer and return size of buff_dest (Buff_dest[i+j]=Buff_dest[i]+Buff_sour[j])
 
-int BBB( char **dest,int sz,char *sour,int s_sz)//buffer by buffer and return size of buff_dest (Buff_dest[i+j]=Buff_dest[i]+Buff_sour[j])
+int BBB( char **dest,int sz,char *sour,int s_sz)
 {
 	char *temp; 
 	if((temp=realloc(*dest,sz+s_sz))==NULL)

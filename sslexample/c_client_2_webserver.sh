@@ -1,0 +1,1 @@
+gcc  -o c_2_s  -L /usr/local/opt/openssl/lib  -lssl -lcrypto  client_2_webserver.c 

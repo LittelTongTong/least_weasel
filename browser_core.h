@@ -10,6 +10,7 @@
 #define B_BUF 3072
 #define HTTP 1 
 #define HTTPS 2
+#define FTP 3 
 #endif
 char PNG_EOF[]={0x60,0x82};//PNG EOF 
 char H_EOF[]={'\r','\n','\r','\n'};//header EOF
@@ -19,11 +20,20 @@ struct w_s_d
     char * website;
     struct addrinfo * website_addrinfo;
 };
-//Find the customized EOF in BUFF    
+//website socket information to printable ip 
+int  WSD_2_RIP(struct w_s_d *info)
+{
+    char string [INET_ADDRSTRLEN];
+    struct sockaddr_in *ip4_addr= info->website_addrinfo->ai_addr;
+    inet_ntop(AF_INET,&(ip4_addr->sin_addr),string,INET_ADDRSTRLEN);
+    printf("ip 0:%s\n",string);
+    return 0 ;
+}
 void S_P(int port,struct w_s_d web_sock_info)
 {
 
 }
+//Find the customized EOF in Data    
 int FTCE(void * data,size_t s_data,void * F_EOF,size_t s_F_EOF)
 {
     for (size_t i = 0; i < s_data-s_F_EOF; i++)
@@ -66,22 +76,6 @@ int S_URI(char *uri)
     return 0;
 }
 //convert  addrinfo  to readable ip and print 
-char * AI_2_RI(struct addrinfo* info)
-{ 
-    char * string=NULL; 
-    if ((info->ai_family)==AF_INET)
-    {
-        struct sockaddr_in * ip4_socket_addr=(struct sockaddr_in * )(info->ai_addr);
-        inet_ntop(AF_INET,&(ip4_socket_addr->sin_addr),string,ip4_socket_addr->sin_len);
-    }
-    if ((info->ai_family)==AF_INET6)
-    {
-        struct sockaddr_in6 * ip6_socket_addr=(struct sockaddr_in6 * )(info->ai_addr);
-        inet_ntop(AF_INET6,&(ip6_socket_addr->sin6_addr),string,ip6_socket_addr->sin6_len);
-    }
-    printf("canonneme:%s 's ip:%s\n",info->ai_canonname,string);
-    return string;
-}
 //DNS服务
 int DNS(char *website ,struct w_s_d * web_socket_data)//网址
 {
@@ -90,12 +84,14 @@ int DNS(char *website ,struct w_s_d * web_socket_data)//网址
     memset(&hint,0,sizeof(struct addrinfo));
     hint.ai_family=AF_UNSPEC;
     hint.ai_socktype=SOCK_STREAM;
+    hint.ai_protocol=IPPROTO_TCP;
     P_E(getaddrinfo(website,NULL,&hint,&res0),"getaddinfo");
     printf("|%s| done\n",website);
     web_socket_data->website=website;
     web_socket_data->website_addrinfo=res0;
     return 0;
 }
+
 //连接到网站服务器
 int C2W(struct w_s_d * web_socket_data,int scheme,char *sdata,int s_size)// C2W(websit server sock info
 {
@@ -109,7 +105,7 @@ int C2W(struct w_s_d * web_socket_data,int scheme,char *sdata,int s_size)// C2W(
     memset(rbuff,0,B_BUF);
     rdata=(char*)malloc(B_BUF);
     struct  sockaddr * loacl_host;
-    if ((sfd = socket(d,t,p)))
+    if ((sfd = socket(d,t,p)))//socket 通信 
     {
         printf("connect to |%s|\n",web_socket_data->website);
         //此处应该增加 ip 连接时则切换 if(web_socker_data->next!=NULL then (web_socker_data=web_socker_data->next)->website_addrinfo->ai_addr)
@@ -165,6 +161,7 @@ int C2W(struct w_s_d * web_socket_data,int scheme,char *sdata,int s_size)// C2W(
 
             break;
         }
+
     }
     else
     {

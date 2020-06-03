@@ -13,7 +13,7 @@ int main()
     //DNS 
     printf(">>>DNS<<<\n");
     DNS(HOST,&web_s_data);
-    //AI_2_RI(web_s_data.website_addrinfo);
+    WSD_2_RIP(&web_s_data);
     printf(">>>end<<<\n\n");
     //设置通信端口
     switch (scheme)
@@ -25,7 +25,7 @@ int main()
             ((struct sockaddr_in*)(web_s_data.website_addrinfo->ai_addr))->sin_port=htons(80);
             break;
             case AF_INET6:
-            ((struct sockaddr_in6*)(web_s_data.website_addrinfo->ai_addr))->sin6_port=htons(80);
+            ((struct sockaddr_in6*)(web_s_data.website_addrinfo->ai_addr))->sin6_port=htons(8080);
             break;
             }
         break;
